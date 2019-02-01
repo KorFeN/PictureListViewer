@@ -13,6 +13,10 @@
 		116BC9BD22046FB200DB1BD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116BC9BC22046FB200DB1BD1 /* Assets.xcassets */; };
 		116BC9C022046FB200DB1BD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116BC9BE22046FB200DB1BD1 /* LaunchScreen.storyboard */; };
 		116BC9CB22046FB200DB1BD1 /* PictureListViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BC9CA22046FB200DB1BD1 /* PictureListViewerTests.swift */; };
+		116F376322049F740002630E /* PictureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F376222049F740002630E /* PictureTableViewController.swift */; };
+		116F37652204A02A0002630E /* PictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F37642204A02A0002630E /* PictureTableViewCell.swift */; };
+		116F37672204A9440002630E /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F37662204A9440002630E /* Picture.swift */; };
+		3AEA7B0223C1641DADF9EB3A /* Pods_PictureListViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE73A03D17A54DED0142CDB /* Pods_PictureListViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,12 @@
 		116BC9C622046FB200DB1BD1 /* PictureListViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PictureListViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		116BC9CA22046FB200DB1BD1 /* PictureListViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureListViewerTests.swift; sourceTree = "<group>"; };
 		116BC9CC22046FB200DB1BD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		116F376222049F740002630E /* PictureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTableViewController.swift; sourceTree = "<group>"; };
+		116F37642204A02A0002630E /* PictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTableViewCell.swift; sourceTree = "<group>"; };
+		116F37662204A9440002630E /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		25E532181CE16B3743AFE21E /* Pods-PictureListViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureListViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PictureListViewer/Pods-PictureListViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		38F992F561F9A12F9E6D2ABD /* Pods-PictureListViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureListViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PictureListViewer/Pods-PictureListViewer.release.xcconfig"; sourceTree = "<group>"; };
+		FEE73A03D17A54DED0142CDB /* Pods_PictureListViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictureListViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AEA7B0223C1641DADF9EB3A /* Pods_PictureListViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +73,8 @@
 				116BC9B422046FAD00DB1BD1 /* PictureListViewer */,
 				116BC9C922046FB200DB1BD1 /* PictureListViewerTests */,
 				116BC9B322046FAD00DB1BD1 /* Products */,
+				A2A0E0B7C82EBF7D284CBB9C /* Pods */,
+				ED9EF243EC75FFBD81634F14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +92,9 @@
 			children = (
 				116BC9B522046FAD00DB1BD1 /* AppDelegate.swift */,
 				116BC9B722046FAD00DB1BD1 /* ViewController.swift */,
+				116F376222049F740002630E /* PictureTableViewController.swift */,
+				116F37662204A9440002630E /* Picture.swift */,
+				116F37642204A02A0002630E /* PictureTableViewCell.swift */,
 				116BC9B922046FAD00DB1BD1 /* Main.storyboard */,
 				116BC9BC22046FB200DB1BD1 /* Assets.xcassets */,
 				116BC9BE22046FB200DB1BD1 /* LaunchScreen.storyboard */,
@@ -96,6 +112,23 @@
 			path = PictureListViewerTests;
 			sourceTree = "<group>";
 		};
+		A2A0E0B7C82EBF7D284CBB9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25E532181CE16B3743AFE21E /* Pods-PictureListViewer.debug.xcconfig */,
+				38F992F561F9A12F9E6D2ABD /* Pods-PictureListViewer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED9EF243EC75FFBD81634F14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEE73A03D17A54DED0142CDB /* Pods_PictureListViewer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 116BC9CF22046FB200DB1BD1 /* Build configuration list for PBXNativeTarget "PictureListViewer" */;
 			buildPhases = (
+				C1A00CA3CC74C18AABB255B0 /* [CP] Check Pods Manifest.lock */,
 				116BC9AE22046FAD00DB1BD1 /* Sources */,
 				116BC9AF22046FAD00DB1BD1 /* Frameworks */,
 				116BC9B022046FAD00DB1BD1 /* Resources */,
+				7BFA002045D0B582764E6493 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,13 +226,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7BFA002045D0B582764E6493 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PictureListViewer/Pods-PictureListViewer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PictureListViewer/Pods-PictureListViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1A00CA3CC74C18AABB255B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PictureListViewer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		116BC9AE22046FAD00DB1BD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116F37652204A02A0002630E /* PictureTableViewCell.swift in Sources */,
 				116BC9B822046FAD00DB1BD1 /* ViewController.swift in Sources */,
+				116F37672204A9440002630E /* Picture.swift in Sources */,
 				116BC9B622046FAD00DB1BD1 /* AppDelegate.swift in Sources */,
+				116F376322049F740002630E /* PictureTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +442,7 @@
 		};
 		116BC9D022046FB200DB1BD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25E532181CE16B3743AFE21E /* Pods-PictureListViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +460,7 @@
 		};
 		116BC9D122046FB200DB1BD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38F992F561F9A12F9E6D2ABD /* Pods-PictureListViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

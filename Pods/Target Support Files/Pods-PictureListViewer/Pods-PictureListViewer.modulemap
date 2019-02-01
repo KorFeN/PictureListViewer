@@ -1,0 +1,6 @@
+framework module Pods_PictureListViewer {
+  umbrella header "Pods-PictureListViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}
