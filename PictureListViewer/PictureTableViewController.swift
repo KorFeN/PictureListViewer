@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PictureTableViewController: UITableViewController {
 
@@ -14,6 +16,15 @@ class PictureTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getPictureJSONListFromURL(url: "https://picsum.photos/list") { (pictureArray: [PictureJSON]) in
+            guard pictureArray.count != nil else { return }
+            self.picturesAdd(picList: pictureArray)
+        }
+        
+        
+        
+        //110 x 80
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -109,6 +120,45 @@ class PictureTableViewController: UITableViewController {
         }
     }
     
+    //MARK: Networking
+    
+    func getPictureJSONListFromURL(url: String, completion: @escaping(_ pictureArray: [PictureJSON]) -> Void) {
+        
+        //Prepare an array to fill and then return.
+        var picArr = [PictureJSON]()
+        
+        var headers = Alamofire.SessionManager.defaultHTTPHeaders
+        headers["User-Agent"] = "iPhone"
+        
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { (response) in
+            
+            //Get status code of HTTP request
+            if let status = response.response?.statusCode {
+                
+                
+                //Status code 200, standard response for HTTP requests if no error encountered.
+                switch(status){
+                case 200:
+                    guard let data = response.data else { return }
+                    let decoder = JSONDecoder()
+                    guard let jsonArray = try? JSON(data: data) else { return }
+                    
+                    for jsonObject in jsonArray.arrayValue {
+                        if let jsonPic = try? decoder.decode(PictureJSON.self, from: jsonObject.rawData()) {
+                            let jsonPic = picArr += [jsonPic]
+                        }
+                    }
+                default:
+                    print("Error with Alamofire response status: \(status)")
+                }
+                
+            }
+            completion(picArr)
+        }
+    }
+
     
     //MARK: Private Methods
     
@@ -119,19 +169,34 @@ class PictureTableViewController: UITableViewController {
         let sample3 = UIImage(named: "sample3")
         
         
-        guard let picture1 = Picture(photo: sample1!, author: "authorstr", size: "sizestr", format: "frmatstr") else {
+        guard let picture1 = Picture(photo: sample1!, author: "authorstr", size: "sizestr", format: "frmatstr", id: 0) else {
             fatalError("Could not instantiate picture1")
         }
         
-        guard let picture2 = Picture(photo: sample2!, author: "authorstr", size: "sizestr", format: "formatstr") else {
+        guard let picture2 = Picture(photo: sample2!, author: "authorstr", size: "sizestr", format: "formatstr", id: 0) else {
             fatalError("Could not instantiate picture2")
         }
         
-        guard let picture3 = Picture(photo: sample3!, author: "authorstr", size: "sizestr", format: "formatstr") else {
+        guard let picture3 = Picture(photo: sample3!, author: "authorstr", size: "sizestr", format: "formatstr", id: 0) else {
             fatalError("Could not instantiate picture3")
         }
         
         pictures += [picture1, picture2, picture3]
+    }
+    
+    private func picturesAdd(picList: [PictureJSON]){
+        if (!picList.isEmpty){
+          for jsonpic in picList {
+            let pic = Picture(pictureJson: jsonpic)
+            pictures += [pic]
+            }
+        }
+    }
+    
+    private func picturesAdd(picList: [Picture]){
+        if (!picList.isEmpty){
+            pictures += picList
+        }
     }
 
 }

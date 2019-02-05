@@ -4,4 +4,7 @@ use_frameworks!
 
 target 'PictureListViewer' do
     pod 'Alamofire', '~> 4.7'
+    pod 'Kingfisher', '~> 5.0'
+    pod 'SwiftyJSON', '~> 4.0'
 end
+

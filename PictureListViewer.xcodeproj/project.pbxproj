@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112BDAD22207373F00CD4016 /* PictureJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112BDAD12207373F00CD4016 /* PictureJSON.swift */; };
 		116BC9B622046FAD00DB1BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BC9B522046FAD00DB1BD1 /* AppDelegate.swift */; };
 		116BC9B822046FAD00DB1BD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BC9B722046FAD00DB1BD1 /* ViewController.swift */; };
 		116BC9BB22046FAD00DB1BD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116BC9B922046FAD00DB1BD1 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112BDAD12207373F00CD4016 /* PictureJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureJSON.swift; sourceTree = "<group>"; };
 		116BC9B222046FAD00DB1BD1 /* PictureListViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureListViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116BC9B522046FAD00DB1BD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116BC9B722046FAD00DB1BD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				116BC9B722046FAD00DB1BD1 /* ViewController.swift */,
 				116F376222049F740002630E /* PictureTableViewController.swift */,
 				116F37662204A9440002630E /* Picture.swift */,
+				112BDAD12207373F00CD4016 /* PictureJSON.swift */,
 				116F37642204A02A0002630E /* PictureTableViewCell.swift */,
 				116BC9B922046FAD00DB1BD1 /* Main.storyboard */,
 				116BC9BC22046FB200DB1BD1 /* Assets.xcassets */,
@@ -237,12 +240,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PictureListViewer/Pods-PictureListViewer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -280,6 +287,7 @@
 			files = (
 				116F37652204A02A0002630E /* PictureTableViewCell.swift in Sources */,
 				116BC9B822046FAD00DB1BD1 /* ViewController.swift in Sources */,
+				112BDAD22207373F00CD4016 /* PictureJSON.swift in Sources */,
 				116F37672204A9440002630E /* Picture.swift in Sources */,
 				116BC9B622046FAD00DB1BD1 /* AppDelegate.swift in Sources */,
 				116F376322049F740002630E /* PictureTableViewController.swift in Sources */,
