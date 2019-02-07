@@ -17,23 +17,20 @@ class PictureTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getPictureJSONListFromURL(url: "https://picsum.photos/list") { (pictureArray: [PictureJSON]) in
-            guard pictureArray.count != nil else { return }
+        API().requestJsonArray(url: "https://picsum.photos/list") { (pictureArray: [PictureJSON]) in
+            guard pictureArray.count != 0 else { return }
             self.picturesAdd(picList: pictureArray)
+            self.tableView.reloadData()
         }
         
         
         
-        //110 x 80
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //Load sample cells
-        loadSampleCells()
         
     }
 
@@ -55,7 +52,11 @@ class PictureTableViewController: UITableViewController {
         
         // Configure the cell...
         let pictureObj = pictures[indexPath.row]
+        
+        //Sets placeholder image, then ASync download of image and sets it when completed
         cell.pictureImageView.image = pictureObj.photo
+        API().setImage(imageView: cell.pictureImageView, picture: pictureObj)
+        
         cell.authorLabel.text = pictureObj.author
         cell.sizeLabel.text = pictureObj.size
         cell.formatLabel.text = pictureObj.format
@@ -105,7 +106,7 @@ class PictureTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == "showImageSegue" {
-            guard let pictureViewController = segue.destination as? ViewController else {
+            guard let pictureViewController = segue.destination as? DetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             guard let selectedPictureCell = sender as? PictureTableViewCell else {
@@ -120,82 +121,20 @@ class PictureTableViewController: UITableViewController {
         }
     }
     
-    //MARK: Networking
-    
-    func getPictureJSONListFromURL(url: String, completion: @escaping(_ pictureArray: [PictureJSON]) -> Void) {
-        
-        //Prepare an array to fill and then return.
-        var picArr = [PictureJSON]()
-        
-        var headers = Alamofire.SessionManager.defaultHTTPHeaders
-        headers["User-Agent"] = "iPhone"
-        
-        
-        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
-            .responseJSON { (response) in
-            
-            //Get status code of HTTP request
-            if let status = response.response?.statusCode {
-                
-                
-                //Status code 200, standard response for HTTP requests if no error encountered.
-                switch(status){
-                case 200:
-                    guard let data = response.data else { return }
-                    let decoder = JSONDecoder()
-                    guard let jsonArray = try? JSON(data: data) else { return }
-                    
-                    for jsonObject in jsonArray.arrayValue {
-                        if let jsonPic = try? decoder.decode(PictureJSON.self, from: jsonObject.rawData()) {
-                            let jsonPic = picArr += [jsonPic]
-                        }
-                    }
-                default:
-                    print("Error with Alamofire response status: \(status)")
-                }
-                
-            }
-            completion(picArr)
-        }
-    }
-
-    
     //MARK: Private Methods
-    
-    private func loadSampleCells() {
-        
-        let sample1 = UIImage(named: "sample1")
-        let sample2 = UIImage(named: "sample2")
-        let sample3 = UIImage(named: "sample3")
-        
-        
-        guard let picture1 = Picture(photo: sample1!, author: "authorstr", size: "sizestr", format: "frmatstr", id: 0) else {
-            fatalError("Could not instantiate picture1")
-        }
-        
-        guard let picture2 = Picture(photo: sample2!, author: "authorstr", size: "sizestr", format: "formatstr", id: 0) else {
-            fatalError("Could not instantiate picture2")
-        }
-        
-        guard let picture3 = Picture(photo: sample3!, author: "authorstr", size: "sizestr", format: "formatstr", id: 0) else {
-            fatalError("Could not instantiate picture3")
-        }
-        
-        pictures += [picture1, picture2, picture3]
-    }
     
     private func picturesAdd(picList: [PictureJSON]){
         if (!picList.isEmpty){
           for jsonpic in picList {
             let pic = Picture(pictureJson: jsonpic)
-            pictures += [pic]
+            self.pictures += [pic]
             }
         }
     }
     
     private func picturesAdd(picList: [Picture]){
         if (!picList.isEmpty){
-            pictures += picList
+            self.pictures += picList
         }
     }
 

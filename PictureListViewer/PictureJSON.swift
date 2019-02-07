@@ -10,6 +10,7 @@ import Foundation
 struct PictureJSON : Codable {
     
     //MARK: Json members
+    
     var author: String
     var format: String
     var id: Int
