@@ -31,6 +31,8 @@ class DetailViewController: UIViewController {
             formatLabel.text = uPic.format
             pictureImageView.image = uPic.photo
             API().setImage(imageView: pictureImageView, picture: uPic)
+        }else {
+            fatalError("Picture object passed to DetailedView was nil.")
         }
     }
 
