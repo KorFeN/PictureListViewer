@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Browser"
         self.tableView.delegate = tableViewDelegateDS
         self.tableView.dataSource = tableViewDelegateDS
         // Do any additional setup after loading the view

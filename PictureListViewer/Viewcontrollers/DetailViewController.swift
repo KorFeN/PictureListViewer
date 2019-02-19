@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         if let uPic = picture {
             
@@ -30,17 +29,11 @@ class DetailViewController: UIViewController {
             sizeLabel.text = uPic.size
             formatLabel.text = uPic.format
             pictureImageView.image = uPic.photo
+            self.title = uPic.author
             API().setImage(imageView: pictureImageView, picture: uPic)
         }else {
             fatalError("Picture object passed to DetailedView was nil.")
         }
-    }
-
-    //MARK: Actions
-    
-    @IBAction func backButtonTouchUp(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+    }    
 }
 
