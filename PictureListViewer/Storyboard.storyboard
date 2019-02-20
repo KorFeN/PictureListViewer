@@ -18,34 +18,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a2G-bD-QTh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="528"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVk-K9-36P">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVk-K9-36P">
                                 <rect key="frame" x="133" y="568" width="109" height="30"/>
                                 <state key="normal" title="Random Picture"/>
+                                <connections>
+                                    <action selector="randomImageButtonClick:" destination="VaF-CQ-jCZ" eventType="touchUpInside" id="5SH-Ql-3Lx"/>
+                                </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a2G-bD-QTh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="528"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="s3Z-9U-RvV" appends="YES" id="2P5-Gj-QWa"/>
+                                </connections>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNC-CR-1vy" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="165" y="311" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="BPk-QL-q54"/>
+                                    <constraint firstAttribute="height" constant="45" id="Fgj-tD-woh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YNC-CR-1vy" firstAttribute="centerX" secondItem="jrg-5L-Ez9" secondAttribute="centerX" id="Gzn-iw-8O4"/>
                             <constraint firstItem="a2G-bD-QTh" firstAttribute="top" secondItem="jrg-5L-Ez9" secondAttribute="top" id="OUb-ca-L0b"/>
+                            <constraint firstItem="pVk-K9-36P" firstAttribute="centerX" secondItem="jrg-5L-Ez9" secondAttribute="centerX" id="dFH-im-RM0"/>
                             <constraint firstItem="zae-pM-deq" firstAttribute="bottom" secondItem="pVk-K9-36P" secondAttribute="bottom" constant="20" id="dna-4o-JQh"/>
                             <constraint firstItem="pVk-K9-36P" firstAttribute="top" secondItem="a2G-bD-QTh" secondAttribute="bottom" constant="40" id="hPB-T2-LcU"/>
                             <constraint firstItem="a2G-bD-QTh" firstAttribute="leading" secondItem="zae-pM-deq" secondAttribute="leading" id="hwD-56-j4b"/>
                             <constraint firstItem="a2G-bD-QTh" firstAttribute="trailing" secondItem="zae-pM-deq" secondAttribute="trailing" id="tA3-i6-8Yt"/>
+                            <constraint firstItem="YNC-CR-1vy" firstAttribute="centerY" secondItem="jrg-5L-Ez9" secondAttribute="centerY" id="yoE-kk-cjd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zae-pM-deq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Random" image="randomIcon" id="IOk-fd-lXu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="imageTapRecogniser" destination="s3Z-9U-RvV" id="zwJ-9h-a5b"/>
                         <outlet property="imageView" destination="a2G-bD-QTh" id="jcg-A1-miz"/>
+                        <outlet property="loadingIndicator" destination="YNC-CR-1vy" id="2yl-db-KG2"/>
                         <outlet property="randomUIButton" destination="pVk-K9-36P" id="e2A-qy-xyN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARg-hR-Dqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s3Z-9U-RvV">
+                    <connections>
+                        <action selector="imageTapped:" destination="VaF-CQ-jCZ" id="Gbf-BM-UHc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-92" y="129.98500749625188"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="psB-Mi-til">
+            <objects>
+                <viewController id="7Qe-6F-X6v" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9g-Gc-nDD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="m8M-LD-Tgo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LfZ-v3-w1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="130"/>
         </scene>
     </scenes>
     <resources>

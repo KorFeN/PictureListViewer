@@ -56,4 +56,20 @@ class API {
         //Loads image of correct size corresponding to imageView from picsum and caches the image to memory/disk
         imageView.kf.setImage(with: URL(string: String(format: "https://picsum.photos/%f/%f?image=%d", imageView.frame.size.width, imageView.frame.size.height, picture.id!)))
     }
+    
+    func getRandomImage(imageView: UIImageView, completion: @escaping(_ image: UIImage) -> Void) {
+        
+        var headers = Alamofire.SessionManager.defaultHTTPHeaders
+        headers["User-Agent"] = "iPhone"
+        
+        Alamofire.request(String(format: "https://picsum.photos/%f/%f/?random", imageView.frame.size.width, imageView.frame.size.height), method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                
+            if let unwrappedData = response.data {
+                if let unwrappedImage = UIImage(data: unwrappedData, scale:1) {
+                    completion(unwrappedImage)
+                }
+            }
+        }
+    }
 }
