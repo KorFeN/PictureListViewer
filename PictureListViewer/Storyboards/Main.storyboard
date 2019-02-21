@@ -19,20 +19,20 @@
             </objects>
             <point key="canvasLocation" x="-290" y="-264"/>
         </scene>
-        <!--Storyboard-->
+        <!--RandomImage-->
         <scene sceneID="GHA-e1-TQB">
             <objects>
-                <viewControllerPlaceholder storyboardName="Storyboard" id="0aj-cO-9RH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="RandomImage" id="0aj-cO-9RH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="8Xg-Je-ccC"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeB-fq-QXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-271" y="-171"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="jlw-f0-PgW">
             <objects>
-                <tabBarController id="0Gw-Kr-hc4" customClass="MainTabBarController" customModule="PictureListViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="0Gw-Kr-hc4" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yJ5-zV-yjj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

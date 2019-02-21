@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  PictureListViewer
-//
-//  Created by Ssss on 2019-02-01.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {

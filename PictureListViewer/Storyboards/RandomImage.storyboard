@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CX-df-38z">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Random-->
+        <scene sceneID="8Xh-dG-jdE">
+            <objects>
+                <viewController title="Random" id="VaF-CQ-jCZ" customClass="RandomViewController" customModule="PictureListViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jrg-5L-Ez9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVk-K9-36P">
+                                <rect key="frame" x="133" y="568" width="109" height="30"/>
+                                <state key="normal" title="Random Picture"/>
+                                <connections>
+                                    <action selector="randomImageButtonClick:" destination="VaF-CQ-jCZ" eventType="touchUpInside" id="5SH-Ql-3Lx"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNC-CR-1vy" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="165" y="311" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="BPk-QL-q54"/>
+                                    <constraint firstAttribute="height" constant="45" id="Fgj-tD-woh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a2G-bD-QTh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="484"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="s3Z-9U-RvV" appends="YES" id="2P5-Gj-QWa"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YNC-CR-1vy" firstAttribute="centerX" secondItem="jrg-5L-Ez9" secondAttribute="centerX" id="Gzn-iw-8O4"/>
+                            <constraint firstItem="pVk-K9-36P" firstAttribute="centerX" secondItem="jrg-5L-Ez9" secondAttribute="centerX" id="dFH-im-RM0"/>
+                            <constraint firstItem="a2G-bD-QTh" firstAttribute="trailing" secondItem="zae-pM-deq" secondAttribute="trailing" id="dFd-8l-S6h"/>
+                            <constraint firstItem="zae-pM-deq" firstAttribute="bottom" secondItem="pVk-K9-36P" secondAttribute="bottom" constant="20" id="dna-4o-JQh"/>
+                            <constraint firstItem="pVk-K9-36P" firstAttribute="top" secondItem="a2G-bD-QTh" secondAttribute="bottom" constant="20" id="eAd-gh-lER"/>
+                            <constraint firstItem="a2G-bD-QTh" firstAttribute="top" secondItem="zae-pM-deq" secondAttribute="top" id="iKy-dQ-hUX"/>
+                            <constraint firstItem="a2G-bD-QTh" firstAttribute="leading" secondItem="zae-pM-deq" secondAttribute="leading" id="qcz-sd-ZaO"/>
+                            <constraint firstItem="YNC-CR-1vy" firstAttribute="centerY" secondItem="jrg-5L-Ez9" secondAttribute="centerY" id="yoE-kk-cjd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zae-pM-deq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Random" id="q8c-rH-VD4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageTapRecogniser" destination="s3Z-9U-RvV" id="zwJ-9h-a5b"/>
+                        <outlet property="imageView" destination="a2G-bD-QTh" id="jcg-A1-miz"/>
+                        <outlet property="loadingIndicator" destination="YNC-CR-1vy" id="2yl-db-KG2"/>
+                        <outlet property="randomUIButton" destination="pVk-K9-36P" id="e2A-qy-xyN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARg-hR-Dqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s3Z-9U-RvV">
+                    <connections>
+                        <action selector="imageTapped:" destination="VaF-CQ-jCZ" id="Gbf-BM-UHc"/>
+                        <segue destination="7Qe-6F-X6v" kind="show" identifier="showEditSegue" id="xVn-8E-Vwr"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="856.79999999999995" y="129.98500749625188"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="psB-Mi-til">
+            <objects>
+                <viewController title="Edit" id="7Qe-6F-X6v" customClass="EditViewController" customModule="PictureListViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9g-Gc-nDD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JPj-qB-hEG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yI3-Cn-mea">
+                                <rect key="frame" x="68.5" y="572" width="238" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerRadiusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v8e-NZ-D5B">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1Xk-vH-aux"/>
+                                            <constraint firstAttribute="width" constant="30" id="pt0-HZ-Ms3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="i4V-CL-0Cx">
+                                        <rect key="frame" x="36" y="0.0" width="204" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="9U4-us-L8e"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="cornerRadiusSliderChangedValue:" destination="7Qe-6F-X6v" eventType="valueChanged" id="dQA-qQ-Pbe"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="JPj-qB-hEG" firstAttribute="trailing" secondItem="m8M-LD-Tgo" secondAttribute="trailing" id="3MG-VT-835"/>
+                            <constraint firstItem="JPj-qB-hEG" firstAttribute="bottom" secondItem="m8M-LD-Tgo" secondAttribute="bottom" id="G94-rV-Cbt"/>
+                            <constraint firstItem="m8M-LD-Tgo" firstAttribute="bottom" secondItem="yI3-Cn-mea" secondAttribute="bottom" constant="16" id="Isc-Pt-Inb"/>
+                            <constraint firstItem="JPj-qB-hEG" firstAttribute="leading" secondItem="m8M-LD-Tgo" secondAttribute="leading" id="JbJ-8M-akI"/>
+                            <constraint firstItem="yI3-Cn-mea" firstAttribute="centerX" secondItem="o9g-Gc-nDD" secondAttribute="centerX" id="NR8-ZU-iRn"/>
+                            <constraint firstItem="JPj-qB-hEG" firstAttribute="top" secondItem="m8M-LD-Tgo" secondAttribute="top" id="qwP-Ie-iXw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m8M-LD-Tgo"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hg5-Qn-awU" appends="YES" id="myg-dv-y8h"/>
+                            <outletCollection property="gestureRecognizers" destination="H6f-dP-BSi" appends="YES" id="jIW-JN-Ic1"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cornerRadiusSlider" destination="i4V-CL-0Cx" id="0Qg-qb-Vqp"/>
+                        <outlet property="imageView" destination="JPj-qB-hEG" id="3FN-Ln-X9Q"/>
+                        <outlet property="pichGestureRecognizer" destination="hg5-Qn-awU" id="VMw-XC-05k"/>
+                        <outlet property="rotationGestureRecognizer" destination="H6f-dP-BSi" id="7Lg-Zl-msH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LfZ-v3-w1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="hg5-Qn-awU">
+                    <connections>
+                        <action selector="pinchGesture:" destination="7Qe-6F-X6v" id="rwK-Ov-VIh"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="H6f-dP-BSi">
+                    <connections>
+                        <action selector="rotationGesture:" destination="7Qe-6F-X6v" id="0I7-eh-Eqy"/>
+                    </connections>
+                </rotationGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1760.8" y="129.98500749625188"/>
+        </scene>
+        <!--Random-->
+        <scene sceneID="4Ur-ex-VJl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2CX-df-38z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Random" image="randomIcon" id="IOk-fd-lXu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KOc-Mw-h8J">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VaF-CQ-jCZ" kind="relationship" relationship="rootViewController" id="B49-AW-Iqh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dog-UL-d9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-82.400000000000006" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cornerRadiusIcon" width="170" height="170"/>
+        <image name="randomIcon" width="25" height="25"/>
+    </resources>
+</document>
